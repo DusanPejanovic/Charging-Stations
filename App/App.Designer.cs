@@ -1,7 +1,7 @@
 ﻿
-namespace Charging_stations
+namespace Charging_stations.App
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,20 @@ namespace Charging_stations
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // App
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "App";
+            this.Text = "App";
+            this.Load += new System.EventHandler(this.App_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Charging_stations
+namespace Charging_stations.App
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
-        public Form1()
+        public App()
         {
             InitializeComponent();
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
