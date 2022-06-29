@@ -55,5 +55,13 @@ namespace App
             //login.Show();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var readWindow = new Charging_place.ChargingPlaceRead();
+            readWindow.ShowDialog();
+            this.Show();
+        }
     }
 }

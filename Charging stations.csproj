@@ -92,6 +92,12 @@
     <Compile Include="App\Charging place\ChargingPlaceCreate.Designer.cs">
       <DependentUpon>ChargingPlaceCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="App\Charging place\ChargingPlaceRead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Charging place\ChargingPlaceRead.Designer.cs">
+      <DependentUpon>ChargingPlaceRead.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="App\Charging place\ChargingPlaceCreate.resx">
       <DependentUpon>ChargingPlaceCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Charging place\ChargingPlaceRead.resx">
+      <DependentUpon>ChargingPlaceRead.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="App\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
