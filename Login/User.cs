@@ -33,17 +33,17 @@ namespace Login
             this.password = password;
             this.role = role;
         }
-        public static bool Login(string username, string password)
+        public static User? Login(string username, string password)
         {
             List<User> users = User.Deserialize();
             foreach(User user in users)
             {
                 if (user.username == username && user.password == password)
                 {
-                    return true;
+                    return user;
                 }
             }
-            return false;
+            return null;
         }
         public static void Serialize(List<User> medications)
         {

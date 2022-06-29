@@ -25,9 +25,9 @@ namespace Charging_stations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
-            string passwrod = textBox2.Text;
-            if(User.Login(username, passwrod))
+            string username = usernameTextBox.Text;
+            string passwrod = passwordTextBox.Text;
+            if((User.Login(username, passwrod) != null))
             {
                 MessageBox.Show("Uspesan login!");
                 this.Hide();
