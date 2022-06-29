@@ -16,10 +16,18 @@ namespace Charging_stations
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Login.Login());
 
 
-           
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                System.Environment.Exit(1);
+            }
+
 
         }
     }

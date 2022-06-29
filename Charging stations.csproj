@@ -85,19 +85,29 @@
     <Compile Include="App\App.Designer.cs">
       <DependentUpon>App.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Login.cs">
+    <Compile Include="App\Charging place\ChargingPlace.cs" />
+    <Compile Include="App\Charging place\ChargingPlaceCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Login.Designer.cs">
+    <Compile Include="App\Charging place\ChargingPlaceCreate.Designer.cs">
+      <DependentUpon>ChargingPlaceCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="App\Login\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="App\Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\User.cs" />
+    <Compile Include="App\Login\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="App\App.resx">
       <DependentUpon>App.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Login.resx">
+    <EmbeddedResource Include="App\Charging place\ChargingPlaceCreate.resx">
+      <DependentUpon>ChargingPlaceCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -124,7 +134,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\NewFolder1\" />
     <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
