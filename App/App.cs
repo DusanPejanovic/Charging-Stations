@@ -21,8 +21,9 @@ namespace App
         {
             InitializeComponent();
             this.loggedUser = user;
+            loggedUserLabel.Text += loggedUser.Username;
         }
-
+        
         private void App_Load(object sender, EventArgs e)
         {
 
@@ -30,7 +31,11 @@ namespace App
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var createWindow = new Charging_place.ChargingPlaceCreate() ;
+            createWindow.ShowDialog();
+            this.Show();
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -41,6 +46,14 @@ namespace App
         private void button8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //var login = new Login.Login();
+            //login.Show();
+            this.Close();
         }
     }
 }

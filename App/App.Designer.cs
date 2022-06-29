@@ -30,7 +30,7 @@ namespace App
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.chargingPlaceCreate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -39,8 +39,8 @@ namespace App
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
+            this.loggedUserLabel = new System.Windows.Forms.Label();
+            this.logOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,15 +52,15 @@ namespace App
             this.label1.TabIndex = 0;
             this.label1.Text = "Naplatna mesta:";
             // 
-            // button1
+            // chargingPlaceCreate
             // 
-            this.button1.Location = new System.Drawing.Point(62, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 44);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Kreiranje mesta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.chargingPlaceCreate.Location = new System.Drawing.Point(62, 90);
+            this.chargingPlaceCreate.Name = "chargingPlaceCreate";
+            this.chargingPlaceCreate.Size = new System.Drawing.Size(103, 44);
+            this.chargingPlaceCreate.TabIndex = 1;
+            this.chargingPlaceCreate.Text = "Kreiranje mesta";
+            this.chargingPlaceCreate.UseVisualStyleBackColor = true;
+            this.chargingPlaceCreate.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -138,31 +138,32 @@ namespace App
             this.button5.Text = "Brisanje";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // loggedUserLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(452, 418);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Ulogovan korisnik: ";
+            this.loggedUserLabel.AutoSize = true;
+            this.loggedUserLabel.Location = new System.Drawing.Point(468, 418);
+            this.loggedUserLabel.Name = "loggedUserLabel";
+            this.loggedUserLabel.Size = new System.Drawing.Size(98, 13);
+            this.loggedUserLabel.TabIndex = 10;
+            this.loggedUserLabel.Text = "Ulogovan korisnik: ";
             // 
-            // button9
+            // logOutButton
             // 
-            this.button9.Location = new System.Drawing.Point(683, 410);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(105, 28);
-            this.button9.TabIndex = 11;
-            this.button9.Text = "Log out";
-            this.button9.UseVisualStyleBackColor = true;
+            this.logOutButton.Location = new System.Drawing.Point(683, 410);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(105, 28);
+            this.logOutButton.TabIndex = 11;
+            this.logOutButton.Text = "Log out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.logOutButton);
+            this.Controls.Add(this.loggedUserLabel);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button7);
@@ -171,7 +172,7 @@ namespace App
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.chargingPlaceCreate);
             this.Controls.Add(this.label1);
             this.Name = "App";
             this.Text = "App";
@@ -184,7 +185,7 @@ namespace App
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button chargingPlaceCreate;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -193,7 +194,7 @@ namespace App
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label loggedUserLabel;
+        private System.Windows.Forms.Button logOutButton;
     }
 }
