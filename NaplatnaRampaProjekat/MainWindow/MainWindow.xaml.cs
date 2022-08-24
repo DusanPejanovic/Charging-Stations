@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace NaplatnaRampaProjekat.MainWindow
+namespace MainWindow
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
