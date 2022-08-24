@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
-namespace NaplatnaRampaProjekat.Login
+namespace Login
 {
     /// <summary>
     /// Interaction logic for Login.xaml
@@ -23,68 +23,55 @@ namespace NaplatnaRampaProjekat.Login
         public Login()
         {
             InitializeComponent();
+            
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private bool checkUserPassword(string type)
         {
-
             string cs = @"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB";
 
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string sql = "SELECT Korisnicko_Ime, Sifra FROM Administrator";
+            string sql = "SELECT Korisnicko_Ime, Sifra FROM " + type;
             using var cmd = new MySqlCommand(sql, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
 
-            bool nadjen = false;
 
             while (rdr.Read())
             {
                 string pass = rdr.GetString(1);
                 string user = rdr.GetString(0);
-
-
-                // Trace.WriteLine(user);
-                // Trace.WriteLine(korisnickoImeTextBox.Text);  korisno za ispisivanje
-
-                if (pass == sifraTextBox.Text && user == korisnickoImeTextBox.Text)
+                if (pass == sifraTextBox.Password && user == korisnickoImeTextBox.Text)
                 {
-
-                    nadjen = true;
-                    MessageBox.Show("Doboro dosao ti si admin", "Notifikacija", MessageBoxButton.YesNoCancel);
-                    break;
+                    MessageBox.Show("Doboro dosao ti si " + type, "Notifikacija");
+                    return true;
                 }
             }
-
             rdr.Close();
 
-            if (nadjen == true)
-                return;
-
-            sql = "SELECT Korisnicko_Ime, Sifra FROM Radnik";
-            using var cmd2 = new MySqlCommand(sql, con);
-
-            using MySqlDataReader rdr2 = cmd2.ExecuteReader();
-
-            while (rdr2.Read())
+            return false;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkUserPassword("Administrator") || checkUserPassword("Radnik"))
             {
-                string pass = rdr2.GetString(1);
-                string user = rdr2.GetString(0);
+                this.Hide();
+                var mainApp = new MainWindow.MainWindow();
+                mainApp.ShowDialog();
+                this.Close();
 
-                if (pass == sifraTextBox.Text && user == korisnickoImeTextBox.Text)
-                {
-                    nadjen = true;
-                    MessageBox.Show("Dobro dosao ti si radnik", "Notifikacija", MessageBoxButton.YesNoCancel);
-                    break;
-                }
+            }
+            /*else if (checkUserPassword("Radnik"))
+            {
+
+            }*/
+            else
+            {
+                MessageBox.Show("Neuspesan login", "Notifikacija", MessageBoxButton.YesNoCancel);
             }
 
-            if (nadjen == true)
-                return;
-
-            MessageBox.Show("Nisi dobro dosao", "Notifikacija", MessageBoxButton.YesNoCancel);
+            
 
         }
     }
