@@ -1,0 +1,22 @@
+﻿<Window x:Class="NaplatnaRampaProjekat.RadnikWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NaplatnaRampaProjekat"
+        mc:Ignorable="d"
+        Title="Fizicka naplata" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <TextBox Name="registracionaTablicaTextBox" HorizontalAlignment="Left" Margin="425,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
+        <Label  Content="Registraciona tablice" HorizontalAlignment="Left" Margin="194,104,0,0" VerticalAlignment="Top" Height="46" Width="183" FontSize="16"/>
+        <Button Content="Izloguj se" HorizontalAlignment="Left" Margin="22,18,0,0"  VerticalAlignment="Top" Height="30" Width="80" Click="Button_Click"/>
+        <TextBox Name="pocetnaStanicaTextBox" HorizontalAlignment="Left" Margin="425,163,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
+        <Label  Content="Naziv pocetne stanice" HorizontalAlignment="Left" Margin="194,156,0,0" VerticalAlignment="Top" Height="46" Width="194" FontSize="16"/>
+        <TextBox Name="kategorijaVozilaTextBox" HorizontalAlignment="Left" Margin="425,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
+        <Label  Content="Naziv kategorije vozila" HorizontalAlignment="Left" Margin="194,263,0,0" VerticalAlignment="Top" Height="48" Width="197" FontSize="16"/>
+        <Button Content="Obavi transakciju" HorizontalAlignment="Center" Margin="0,343,0,0"  VerticalAlignment="Top" Height="30" Width="132" Click="ObaviTransakciju" FontSize="14"/>
+        <TextBox Name="krajnjaStanicaTextBox" HorizontalAlignment="Left" Margin="425,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
+        <Label  Content="Naziv krajnje stanice" HorizontalAlignment="Left" Margin="194,217,0,0" VerticalAlignment="Top" Height="46" Width="194" FontSize="16"/>
+
+    </Grid>
+</Window>

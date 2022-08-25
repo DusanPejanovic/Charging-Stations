@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,22 +11,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace NaplatnaRampaProjekat
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RadnikWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RadnikWindow : Window
     {
-        public MainWindow()
+        public RadnikWindow()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
+
+
+        private void ObaviTransakciju(object sender, RoutedEventArgs e)
         {
 
             string cs = @"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB";
@@ -35,7 +41,7 @@ namespace NaplatnaRampaProjekat
             using var con = new MySqlConnection(cs);
             con.Open();
 
-            string sql = "SELECT Korisnicko_Ime, Sifra FROM Administrator";
+            string sql = "SELECT Datum_Pocetka_vazenja, Datum_Zavrsetka_vazenja, Cena FROM Cena WHERE ID_Cena in (  SELECT ID_Cena FROM Cenovnik WHERE ID_Stanica_pocetna IN (SELECT ID_Stanica FROM Stanica WHERE Naziv= '" + pocetnaStanicaTextBox.Text + "') AND  ID_Stanica_krajnja IN (SELECT ID_Stanica FROM Stanica WHERE Naziv= '" + krajnjaStanicaTextBox.Text + "') AND  ID_Kategorija_vozila IN (SELECT ID_Kategorija_vozila FROM Kategorija_vozila WHERE Naziv_kategorije='" + kategorijaVozilaTextBox.Text  + "'));";
             using var cmd = new MySqlCommand(sql, con);
 
             using MySqlDataReader rdr = cmd.ExecuteReader();
@@ -45,13 +51,13 @@ namespace NaplatnaRampaProjekat
             while (rdr.Read())
             {
                 string pass = rdr.GetString(1);
-                string user =  rdr.GetString(0);
+                string user = rdr.GetString(0);
 
 
                 // Trace.WriteLine(user);
                 // Trace.WriteLine(korisnickoImeTextBox.Text);  korisno za ispisivanje
 
-                if (pass == sifraTextBox.Text && user == korisnickoImeTextBox.Text)
+                if (pass == pocetnaStanicaTextBox.Text && user == kategorijaVozilaTextBox.Text)
                 {
 
                     nadjen = true;
@@ -61,35 +67,7 @@ namespace NaplatnaRampaProjekat
             }
 
             rdr.Close();
-
-            if (nadjen == true)
-                return;
-
-            sql = "SELECT Korisnicko_Ime, Sifra FROM Radnik";
-            using var cmd2 = new MySqlCommand(sql, con);
-
-            using MySqlDataReader rdr2 = cmd2.ExecuteReader();
-
-            while (rdr2.Read())
-            {
-                string pass = rdr2.GetString(1);
-                string user = rdr2.GetString(0);
-
-                if (pass == sifraTextBox.Text && user == korisnickoImeTextBox.Text)
-                {
-                    nadjen = true;
-                    RadnikWindow radnikWindow = new RadnikWindow();
-                    radnikWindow.Show();
-                    this.Close();
-                    break;
-                }
-            }
-
-            if (nadjen == true)
-                return;
-
-            MessageBox.Show("Nisi dobro dosao", "Notifikacija", MessageBoxButton.YesNoCancel);
-
         }
+
     }
 }
