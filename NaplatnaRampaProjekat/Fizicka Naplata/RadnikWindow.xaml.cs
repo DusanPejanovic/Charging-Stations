@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Windows;
+using Login;
 
 namespace NaplatnaRampaProjekat
 {
@@ -13,8 +14,8 @@ namespace NaplatnaRampaProjekat
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
             Close();
         }
 
