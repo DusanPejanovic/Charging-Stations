@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using NaplatnaRampaProjekat;
-using NaplatnaRampaProjekat.CRUD_i_Izvestaji;
+using Admin;
 
 namespace Login
 {
@@ -60,7 +60,7 @@ namespace Login
             {
                 this.Hide();
                 var mainApp = new AdministratorWindow();
-                mainApp.ShowDialog();
+                mainApp.Show();
                 this.Close();
 
             }

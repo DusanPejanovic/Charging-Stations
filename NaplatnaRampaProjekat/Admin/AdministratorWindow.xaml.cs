@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace NaplatnaRampaProjekat.CRUD_i_Izvestaji
+namespace Admin
 {
     /// <summary>
     /// Interaction logic for AdministratorWindow.xaml
@@ -25,11 +25,34 @@ namespace NaplatnaRampaProjekat.CRUD_i_Izvestaji
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void logOut_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             Close();
+        }
+
+        private void chargingPlace_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var chargingCRUD = new ChargingPlaceCRUD();
+            chargingCRUD.ShowDialog();
+            this.Show();
+        }
+
+        private void report_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cenovnik_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void chargingStations_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
