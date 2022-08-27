@@ -77,9 +77,10 @@ namespace Admin
 
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             var createWindow = new CreateTollPlace();
             createWindow.ShowDialog();
+            FillDataGrid();
             this.Show();
         }
 
@@ -119,10 +120,18 @@ namespace Admin
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
-            nazivTextBox.IsReadOnly = false;
-            eNaplataCheckBox.IsHitTestVisible = true;
-            confirmEdit.Visibility = Visibility.Visible;
-            dataGrid.IsHitTestVisible  = false;
+            if (dataGrid.SelectedItem is not null)
+            {
+                nazivTextBox.IsReadOnly = false;
+                eNaplataCheckBox.IsHitTestVisible = true;
+                confirmEdit.Visibility = Visibility.Visible;
+                dataGrid.IsHitTestVisible = false;
+            }
+            else
+            {
+                MessageBox.Show("Morate prvo izabrati stanicu za izmenu!", "Poruka", MessageBoxButton.OK);
+            }
+
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
