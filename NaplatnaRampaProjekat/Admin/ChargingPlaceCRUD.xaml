@@ -27,7 +27,7 @@
         <Button x:Name="createButton" Content="Dodaj mesto" HorizontalAlignment="Left" Margin="104,207,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click"/>
         <Button x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,207,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click"/>
         <Button x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,207,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click"/>
-        <Button x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="93" Click="confirmEdit_Click"/>
+        <Button x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="85" Click="confirmEdit_Click"/>
 
 
     </Grid>

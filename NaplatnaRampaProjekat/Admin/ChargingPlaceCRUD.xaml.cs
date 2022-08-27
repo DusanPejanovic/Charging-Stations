@@ -77,11 +77,10 @@ namespace Admin
 
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
-            // TODO check input validity
-            /*nazivTextBox.Clear();
-            idTextBox.Clear();
-            stanicaTextBox.Clear();
-            */
+            this.Hide();
+            var createWindow = new CreateTollPlace();
+            createWindow.ShowDialog();
+            this.Show();
         }
 
         private void confirmEdit_Click(object sender, RoutedEventArgs e)
