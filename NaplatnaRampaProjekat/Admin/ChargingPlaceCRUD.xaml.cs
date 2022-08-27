@@ -20,14 +20,19 @@ namespace Admin
     /// </summary>
     public partial class ChargingPlaceCRUD : Window
     {
+        private int ID;
+        private string naziv;
+        private int stanica;
+        private bool eNaplata;
         public ChargingPlaceCRUD()
         { 
             InitializeComponent();
-            FillData();
+            FillDataGrid();
+            
         }
         MySqlConnection connection = new MySqlConnection(@"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB");
 
-        private void FillData()
+        private void FillDataGrid()
         {
             string query = "SELECT * from naplatno_mesto";
             connection.Open();
@@ -42,7 +47,63 @@ namespace Admin
 
         private void dataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            DataRowView dataRowView = (DataRowView)dataGrid.SelectedItem;
+            ID = Convert.ToInt32(dataRowView.Row[0]);
+            naziv = dataRowView.Row[1].ToString();
+            stanica = Convert.ToInt32(dataRowView.Row[3]);
+            eNaplata = (bool)dataRowView.Row[2];
+            idTextBox.Text = ID.ToString();
+            nazivTextBox.Text = naziv;
+            stanicaTextBox.Text = stanica.ToString();
+            if (eNaplata)
+            {
+                eNaplataCheckBox.IsChecked = true;
+            }
+            else
+            {
+                eNaplataCheckBox.IsChecked = false;
+            }
+            
+        }
 
+        private void createButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO check input validity
+            /*nazivTextBox.Clear();
+            idTextBox.Clear();
+            stanicaTextBox.Clear();
+            */
+        }
+
+        private void confirmEdit_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO SQL EDIT
+            FillDataGrid();
+
+            nazivTextBox.IsReadOnly = true;
+            //idTextBox.IsReadOnly = true ;
+            //stanicaTextBox.IsReadOnly = true ;
+            eNaplataCheckBox.IsHitTestVisible = false;
+            confirmEdit.Visibility = Visibility.Hidden;
+        }
+
+        private void updateButton_Click(object sender, RoutedEventArgs e)
+        {
+            nazivTextBox.IsReadOnly = false;
+            //idTextBox.IsReadOnly = false ;
+            //stanicaTextBox.IsReadOnly = false ;
+            eNaplataCheckBox.IsHitTestVisible = true;
+            confirmEdit.Visibility = Visibility.Visible;
+        }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteConfirmation = MessageBox.Show("Da li sigurno želite da izbrišete naplatno mesto(id: " + ID + " naziv: " + naziv + " stanica: " + stanica, "Potvrda brisanja", MessageBoxButton.YesNo);
+            if ( deleteConfirmation == MessageBoxResult.Yes)
+            {
+                // TODO SQL deletion
+                FillDataGrid();
+            }
         }
     }
 }

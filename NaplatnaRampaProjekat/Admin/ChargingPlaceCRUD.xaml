@@ -10,21 +10,24 @@
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="104,50,0,0" VerticalAlignment="Top" Height="30" Width="70"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top"/>
         <Label Content="Stanica:" HorizontalAlignment="Left" Margin="104,132,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nazivTextBox" HorizontalAlignment="Left" Margin="266,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="266,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <TextBox HorizontalAlignment="Left" Margin="266,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <RadioButton Content="Elektronska Naplata" HorizontalAlignment="Left" Margin="104,181,0,0" VerticalAlignment="Top"/>
-        <DataGrid Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="0,232,0,-5" SelectionChanged="dataGrid_SelectionChanged_1" IsReadOnly="True" >
+        <Label Content="El. Naplata:" HorizontalAlignment="Left" Margin="104,173,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nazivTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
+        <TextBox x:Name="idTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
+        <TextBox x:Name="stanicaTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
+        <CheckBox x:Name="eNaplataCheckBox" IsHitTestVisible="False" Margin="356,178,72,177"/>
+        <DataGrid Name="dataGrid" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="0,232,0,-5" SelectionChanged="dataGrid_SelectionChanged_1" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Binding="{Binding ID_Naplatno_mesto}"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*" />
-                <DataGridCheckBoxColumn Header="Elektronska Naplata"  Binding="{Binding ID_Naplatno_mesto}"/>
                 <DataGridTextColumn Header="Stanica" Binding="{Binding ID_Stanica}" Width="*" />
+                <DataGridCheckBoxColumn Header="Elektronska Naplata"  Binding="{Binding Elektronska_naplata}"/>
+
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj mesto" HorizontalAlignment="Left" Margin="104,207,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="251,207,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button Content="Obriši" HorizontalAlignment="Left" Margin="398,207,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="createButton" Content="Dodaj mesto" HorizontalAlignment="Left" Margin="104,207,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click"/>
+        <Button x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,207,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click"/>
+        <Button x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,207,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click"/>
+        <Button x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="93" Click="confirmEdit_Click"/>
 
 
     </Grid>
