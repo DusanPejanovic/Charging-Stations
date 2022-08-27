@@ -37,13 +37,16 @@ namespace Admin
         private void FillDataGrid()
         {
             string query = "SELECT * from naplatno_mesto";
-            connection.Open();
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+            
             using var cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGrid.ItemsSource = dt.DefaultView;
-            //connection.Close();
         }
 
 
@@ -86,13 +89,21 @@ namespace Admin
             
             if ( nazivTextBox.Text != "")
             {
-                //TODO SQL update
-                /*string update = "UPDATE naplatno_mesto SET naziv = " + nazivTextBox.Text + " WHERE ID_Naplatno_mesto = " + ID;
-                using var cmd = new MySqlCommand(update, connection;
-                FillDataGrid();*/
+                string update = "UPDATE naplatno_mesto SET naziv = (@naziv), Elektronska_naplata = (@eNaplata) WHERE ID_Naplatno_mesto = (@ID)";
+                using var cmd = new MySqlCommand(update, connection);
+                cmd.Parameters.AddWithValue("@naziv", nazivTextBox.Text);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                if ((bool)eNaplataCheckBox.IsChecked)
+                {
+                    cmd.Parameters.AddWithValue("eNaplata", 1);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("eNaplata", 0);
+                }
+                cmd.ExecuteNonQuery();
+                FillDataGrid();
                 nazivTextBox.IsReadOnly = true;
-                //idTextBox.IsReadOnly = true ;
-                //stanicaTextBox.IsReadOnly = true ;
                 eNaplataCheckBox.IsHitTestVisible = false;
                 confirmEdit.Visibility = Visibility.Hidden;
                 dataGrid.IsHitTestVisible = true;
@@ -110,8 +121,6 @@ namespace Admin
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
             nazivTextBox.IsReadOnly = false;
-            //idTextBox.IsReadOnly = false ;
-            //stanicaTextBox.IsReadOnly = false ;
             eNaplataCheckBox.IsHitTestVisible = true;
             confirmEdit.Visibility = Visibility.Visible;
             dataGrid.IsHitTestVisible  = false;
@@ -119,10 +128,18 @@ namespace Admin
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var deleteConfirmation = MessageBox.Show("Da li sigurno želite da izbrišete naplatno mesto(id: " + ID + " naziv: " + naziv + " stanica: " + stanica, "Potvrda brisanja", MessageBoxButton.YesNo);
+            var deleteConfirmation = MessageBox.Show("Da li sigurno želite da izbrišete naplatno mesto(id: " + ID + " naziv: " + naziv + " stanica broj: " + stanica + ")", "Potvrda brisanja", MessageBoxButton.YesNo);
             if ( deleteConfirmation == MessageBoxResult.Yes)
             {
-                // TODO SQL deletion
+                string update = "DELETE FROM naplatno_mesto WHERE ID_Naplatno_mesto = (@ID)";
+                using var cmd = new MySqlCommand(update, connection);
+                cmd.Parameters.AddWithValue("@ID", ID);
+                cmd.ExecuteNonQuery();
+                nazivTextBox.Clear();
+                idTextBox.Clear();
+                stanicaTextBox.Clear();
+                eNaplataCheckBox.IsChecked = false;
+
                 FillDataGrid();
             }
         }
