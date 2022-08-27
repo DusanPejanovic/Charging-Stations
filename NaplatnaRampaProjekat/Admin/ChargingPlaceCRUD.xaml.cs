@@ -107,11 +107,16 @@ namespace Admin
                 eNaplataCheckBox.IsHitTestVisible = false;
                 confirmEdit.Visibility = Visibility.Hidden;
                 dataGrid.IsHitTestVisible = true;
+                nazivTextBox.Clear();
+                idTextBox.Clear();
+                stanicaTextBox.Clear();
+                eNaplataCheckBox.IsChecked = false;
+
 
             }
             else
             {
-                MessageBox.Show("Naziv stanice ne može biti prazan!", "Poruka", MessageBoxButton.OK);
+                MessageBox.Show("Naziv naplatnog mesta ne može biti prazan!", "Poruka", MessageBoxButton.OK);
             }
             
 
@@ -129,7 +134,7 @@ namespace Admin
             }
             else
             {
-                MessageBox.Show("Morate prvo izabrati stanicu za izmenu!", "Poruka", MessageBoxButton.OK);
+                MessageBox.Show("Morate prvo izabrati naplatno mesto za izmenu!", "Poruka", MessageBoxButton.OK);
             }
 
         }
