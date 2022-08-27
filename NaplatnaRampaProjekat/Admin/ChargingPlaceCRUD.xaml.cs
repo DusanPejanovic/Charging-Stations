@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace Admin
             
         }
         MySqlConnection connection = new MySqlConnection(@"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB");
+        
 
         private void FillDataGrid()
         {
@@ -41,12 +43,16 @@ namespace Admin
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGrid.ItemsSource = dt.DefaultView;
-            connection.Close();
+            //connection.Close();
         }
 
 
         private void dataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            if (dataGrid.SelectedItem is null)
+            {
+                return;
+            }
             DataRowView dataRowView = (DataRowView)dataGrid.SelectedItem;
             ID = Convert.ToInt32(dataRowView.Row[0]);
             naziv = dataRowView.Row[1].ToString();
@@ -77,14 +83,28 @@ namespace Admin
 
         private void confirmEdit_Click(object sender, RoutedEventArgs e)
         {
-            //TODO SQL EDIT
-            FillDataGrid();
+            
+            if ( nazivTextBox.Text != "")
+            {
+                //TODO SQL update
+                /*string update = "UPDATE naplatno_mesto SET naziv = " + nazivTextBox.Text + " WHERE ID_Naplatno_mesto = " + ID;
+                using var cmd = new MySqlCommand(update, connection;
+                FillDataGrid();*/
+                nazivTextBox.IsReadOnly = true;
+                //idTextBox.IsReadOnly = true ;
+                //stanicaTextBox.IsReadOnly = true ;
+                eNaplataCheckBox.IsHitTestVisible = false;
+                confirmEdit.Visibility = Visibility.Hidden;
+                dataGrid.IsHitTestVisible = true;
 
-            nazivTextBox.IsReadOnly = true;
-            //idTextBox.IsReadOnly = true ;
-            //stanicaTextBox.IsReadOnly = true ;
-            eNaplataCheckBox.IsHitTestVisible = false;
-            confirmEdit.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("Naziv stanice ne može biti prazan!", "Poruka", MessageBoxButton.OK);
+            }
+            
+
+
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
@@ -94,6 +114,7 @@ namespace Admin
             //stanicaTextBox.IsReadOnly = false ;
             eNaplataCheckBox.IsHitTestVisible = true;
             confirmEdit.Visibility = Visibility.Visible;
+            dataGrid.IsHitTestVisible  = false;
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
