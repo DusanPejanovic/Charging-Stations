@@ -81,7 +81,7 @@ namespace Admin
         private void createButton_Click(object sender, RoutedEventArgs e)
         {
             //this.Hide();
-            var createWindow = new CreateTollPlace();
+            var createWindow = new CreateChargingPlace();
             createWindow.ShowDialog();
             FillDataGrid();
             this.Show();

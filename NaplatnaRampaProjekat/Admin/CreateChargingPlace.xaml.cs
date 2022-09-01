@@ -18,9 +18,9 @@ namespace Admin
     /// <summary>
     /// Interaction logic for CreateTollPlace.xaml
     /// </summary>
-    public partial class CreateTollPlace : Window
+    public partial class CreateChargingPlace : Window
     {
-        public CreateTollPlace()
+        public CreateChargingPlace()
         {
             InitializeComponent();
             FillComboBox();

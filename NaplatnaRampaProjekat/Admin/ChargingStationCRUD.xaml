@@ -1,11 +1,10 @@
-﻿<Window x:Class="NaplatnaRampaProjekat.Admin.ChargingStationCRUD"
+﻿<Window x:Class="Admin.ChargingStationCRUD"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NaplatnaRampaProjekat.Admin"
         mc:Ignorable="d"
-        Title="ChargingStationCRUD" Height="450" Width="800">
+        Title="ChargingStationCRUD"  WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid RenderTransformOrigin="0.489,0.484" Margin="91,0,91,20">
         <Label Content="Naziv:" HorizontalAlignment="Left" Margin="104,50,0,0" VerticalAlignment="Top" Height="30" Width="70"/>
         <Label Content="ID:" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top"/>
@@ -13,17 +12,17 @@
         <TextBox x:Name="nazivTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
         <TextBox x:Name="idTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
         <TextBox x:Name="adminTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <DataGrid Name="dataGrid" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="0,232,0,-5" SelectionChanged="dataGrid_SelectionChanged_1" IsReadOnly="True" >
+        <DataGrid Name="dataGrid" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="0,232,0,-5"  IsReadOnly="True" SelectionChanged="dataGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Binding="{Binding ID_Stanica}"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*" />
-                <DataGridTextColumn Header="Administrator" Binding="{Binding ID_Stanica}" Width="*" />
+                <DataGridTextColumn Header="Administrator" Binding="{Binding ID_Administrator}" Width="*" />
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="createButton" Content="Dodaj stanicu" HorizontalAlignment="Left" Margin="104,207,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click"/>
-        <Button x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,207,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click"/>
-        <Button x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,207,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click"/>
+        <Button x:Name="createButton" Content="Dodaj stanicu" HorizontalAlignment="Left" Margin="104,187,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click"/>
+        <Button x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,187,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click"/>
+        <Button x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,187,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click"/>
         <Button x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="85" Click="confirmEdit_Click"/>
 
 

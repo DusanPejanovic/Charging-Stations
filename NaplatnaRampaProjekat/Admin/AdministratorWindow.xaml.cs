@@ -52,7 +52,10 @@ namespace Admin
 
         private void chargingStations_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            var chargingCRUD = new ChargingStationCRUD();
+            chargingCRUD.ShowDialog();
+            this.Show();
         }
     }
 }
