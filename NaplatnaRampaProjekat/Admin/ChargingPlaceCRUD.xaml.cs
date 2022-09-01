@@ -23,7 +23,8 @@ namespace Admin
     {
         private int ID;
         private string naziv;
-        private int stanica;
+        private int stanicaID;
+        private string stanicaName;
         private bool eNaplata;
         public ChargingPlaceCRUD()
         { 
@@ -59,11 +60,13 @@ namespace Admin
             DataRowView dataRowView = (DataRowView)dataGrid.SelectedItem;
             ID = Convert.ToInt32(dataRowView.Row[0]);
             naziv = dataRowView.Row[1].ToString();
-            stanica = Convert.ToInt32(dataRowView.Row[3]);
+            stanicaID = Convert.ToInt32(dataRowView.Row[3]);
+            stanicaName = getStationName(stanicaID);
             eNaplata = (bool)dataRowView.Row[2];
             idTextBox.Text = ID.ToString();
             nazivTextBox.Text = naziv;
-            stanicaTextBox.Text = stanica.ToString();
+            //stanicaTextBox.Text = stanicaID.ToString();
+            stanicaTextBox.Text = stanicaName;
             if (eNaplata)
             {
                 eNaplataCheckBox.IsChecked = true;
@@ -95,11 +98,11 @@ namespace Admin
                 cmd.Parameters.AddWithValue("@ID", ID);
                 if ((bool)eNaplataCheckBox.IsChecked)
                 {
-                    cmd.Parameters.AddWithValue("eNaplata", 1);
+                    cmd.Parameters.AddWithValue("@eNaplata", 1);
                 }
                 else
                 {
-                    cmd.Parameters.AddWithValue("eNaplata", 0);
+                    cmd.Parameters.AddWithValue("@eNaplata", 0);
                 }
                 cmd.ExecuteNonQuery();
                 FillDataGrid();
@@ -122,6 +125,19 @@ namespace Admin
 
 
         }
+        private string getStationName(int idStation)
+        {
+            string query = "SELECT naziv from stanica WHERE ID_Stanica= " + idStation + ';';
+            var cmd = new MySqlCommand(query, connection);
+            var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                stanicaName = (string)reader["naziv"];
+            }
+            reader.Close();
+            return stanicaName;
+
+        }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)
         {
@@ -141,7 +157,7 @@ namespace Admin
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var deleteConfirmation = MessageBox.Show("Da li sigurno želite da izbrišete naplatno mesto(id: " + ID + " naziv: " + naziv + " stanica broj: " + stanica + ")", "Potvrda brisanja", MessageBoxButton.YesNo);
+            var deleteConfirmation = MessageBox.Show("Da li sigurno želite da izbrišete naplatno mesto(id: " + ID + " naziv: " + naziv + " stanica broj: " + stanicaID + ")", "Potvrda brisanja", MessageBoxButton.YesNo);
             if ( deleteConfirmation == MessageBoxResult.Yes)
             {
                 string update = "DELETE FROM naplatno_mesto WHERE ID_Naplatno_mesto = (@ID)";
