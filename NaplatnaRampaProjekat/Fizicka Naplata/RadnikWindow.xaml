@@ -6,36 +6,161 @@
         xmlns:local="clr-namespace:NaplatnaRampaProjekat"
         mc:Ignorable="d"
         Title="Fizicka naplata" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid HorizontalAlignment="Center">
-        <TextBox Name="registracionaTablicaTextBox" HorizontalAlignment="Left" Margin="271,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
-        <Label  Content="Registraciona tablice" HorizontalAlignment="Left" Margin="40,86,0,0" VerticalAlignment="Top" Height="46" Width="183" FontSize="16"/>
-        <Button Content="Izloguj se" HorizontalAlignment="Left" Margin="22,18,0,0"  VerticalAlignment="Top" Height="30" Width="80" Click="Button_Click"/>
-        <TextBox Name="pocetnaStanicaTextBox" HorizontalAlignment="Left" Margin="271,145,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
-        <Label  Content="Naziv pocetne stanice" HorizontalAlignment="Left" Margin="40,138,0,0" VerticalAlignment="Top" Height="46" Width="194" FontSize="16"/>
-        <TextBox Name="kategorijaVozilaTextBox" HorizontalAlignment="Left" Margin="271,192,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
-        <Label  Content="Naziv kategorije vozila" HorizontalAlignment="Left" Margin="40,184,0,0" VerticalAlignment="Top" Height="48" Width="197" FontSize="16"/>
-        <Button Content="Obavi transakciju" HorizontalAlignment="Center" Margin="0,380,0,0"  VerticalAlignment="Top" Height="30" Width="132" Click="ObaviTransakcijju" FontSize="14"/>
-        <TextBox Name="textBoxUplacenoNovca" HorizontalAlignment="Left" Margin="195,306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="184" Height="32"/>
-        <Label  Content="Uplaceno novca" HorizontalAlignment="Left" Margin="55,300,0,0" VerticalAlignment="Top" Height="48" Width="130" FontSize="16"/>
-        <StackPanel Margin="412,277,328,76">
-            <Label FontWeight="Bold" FontSize="13" Content="Valuta" RenderTransformOrigin="0.5,0.5" Width="64"/>
-            <RadioButton  IsChecked="True" FontSize="12" Content="RSD" Width="70" Height="18" />
-            <RadioButton Name="radioButtonEur" Content="EUR" FontSize="12" Width="70" Height="22"/>
-        </StackPanel>
-        <Button Content="Prikazi cenu" HorizontalAlignment="Left" Margin="530,86,0,0"  VerticalAlignment="Top" Height="30" Width="132" Click="PrikaziCenu" FontSize="14"/>
-        <StackPanel   Margin="473,10,218,371">
-            <Label  Content="Status rampe" Height="26" Width="93" FontSize="13"/>
-            <Ellipse Name="MyButton" Height="21" Fill="PaleVioletRed" Stroke="Black"  Width="30" StrokeThickness="0.1"/>
-        </StackPanel>
-        <StackPanel   Margin="621,14,12,353">
-            <Label  Content="Status pomocnih uredjaja" HorizontalAlignment="Center" Height="26" Width="165" FontSize="13"/>
-            <Ellipse Height="21" HorizontalAlignment="Center" Fill="PaleVioletRed" Stroke="Black"  Width="33" StrokeThickness="0.1"/>
-        </StackPanel>
-        <TextBlock x:Name="textBlockRadnikUsername" HorizontalAlignment="Left" Margin="136,21,0,0" TextWrapping="Wrap" Text="Radnik: Dusan Pejanovic" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="APS" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Bahnschrift SemiBold SemiCondensed" FontWeight="Bold"/>
-        <Button Content="Prikazi kusur" HorizontalAlignment="Left" Margin="532,238,0,0"  VerticalAlignment="Top" Height="30" Width="132" Click="RacunajKusur" FontSize="14"/>
-        <TextBox Name="textBoxCena" HorizontalAlignment="Left" TextAlignment="Center"  Margin="532,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="58" UndoLimit="101" IsEnabled="False" FontSize="33"/>
-        <TextBox Name="textBoxKusur"  HorizontalAlignment="Left" TextAlignment="Center"  Margin="532,295,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="58" UndoLimit="101" IsEnabled="False" FontSize="33" />
-       
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border CornerRadius="10" Grid.ColumnSpan="19" Grid.RowSpan="10">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="AntiqueWhite" Offset="0.0"/>
+                        <GradientStop Color="MintCream" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+           
+            <TextBlock Grid.Column="7" Margin="0,10" Grid.ColumnSpan="3" Text="Autoput Srbija" FontWeight="Light" FontFamily="helvetica" FontSize="22" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+         
+            <Border Grid.Column="0" HorizontalAlignment="Center" Grid.ColumnSpan="20" Width="500" Height="2" Background="Black" Opacity="0.3" VerticalAlignment="Bottom" />
+
+            <Button Content="Izloguj se" Grid.Column="0" Grid.ColumnSpan="2"  Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Center"  Opacity="0.7"  VerticalAlignment="Center" Height="30" Width="80" Click="Button_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox IsEnabled="False"  Name="textBlockRadnikUsername" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="ExtraLight" Text="Radnik: jovan123" FontSize="13" Background="Transparent" BorderThickness="0" Width="100" HorizontalContentAlignment="Center" VerticalAlignment="Center"  />
+
+            <WrapPanel  Grid.Column="13" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox IsEnabled="False"   Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="ExtraLight" Text="Status rampe" FontSize="13" Background="Transparent" BorderThickness="0" Width="100" HorizontalContentAlignment="Center" VerticalAlignment="Center"  />
+
+                <Ellipse  Name="MyButton" Height="21" Fill="White"  Stroke="Black"  Width="30"  Opacity="0.5" StrokeThickness="0.4"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="2"    Grid.Column="1" Grid.ColumnSpan="9" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox IsEnabled="False"  HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light" Text="Registracione tablice" FontSize="20" Background="Transparent" BorderThickness="0" Width="200" HorizontalContentAlignment="Center"  />
+                <TextBox Name="registracionaTablicaTextBox" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="200" HorizontalContentAlignment="Left" Opacity="0.5" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </WrapPanel>
+
+            <WrapPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="9" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBox IsEnabled="False"  HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light" Text="Pocetna stanica" FontSize="20" Background="Transparent" BorderThickness="0" Width="200" HorizontalContentAlignment="Center"  />
+                    <TextBox Name="pocetnaStanicaTextBox" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="200" HorizontalContentAlignment="Left" Opacity="0.5" >
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="6"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </WrapPanel>
+
+            <WrapPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="9" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox IsEnabled="False"  HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light" Text="Kategorija Vozila" FontSize="20" Background="Transparent" BorderThickness="0" Width="200" HorizontalContentAlignment="Center"  />
+                <TextBox Name="kategorijaVozilaTextBox" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="200" HorizontalContentAlignment="Left" Opacity="0.5" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </WrapPanel>
+
+            <StackPanel Grid.Row="2" Margin="0" Grid.Column="11" Grid.ColumnSpan="5" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Button Content="Prikazi cenu" Grid.Column="0" Grid.ColumnSpan="2"  Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Center"  Opacity="0.7"  VerticalAlignment="Center" Height="30" Width="80" Click="PrikaziCenu">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <TextBox Name="textBoxCena" HorizontalAlignment="Center" Text="" TextAlignment="Center" VerticalContentAlignment="Center"  FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="190" Height="80" HorizontalContentAlignment="Left" IsEnabled="False" Margin="10" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+
+
+            <StackPanel  Grid.Row="5" Margin="0,0,0,10" Grid.Column="11" Grid.ColumnSpan="5" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Button Content="Prikazi kusur" Grid.Column="0" Grid.ColumnSpan="2"  Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Center"  Opacity="0.7"  VerticalAlignment="Center" Height="30" Width="80" Click="RacunajKusur">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <TextBox Name="textBoxKusur" HorizontalAlignment="Center" Text="" TextAlignment="Center" VerticalContentAlignment="Center"  FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="190" Height="80" HorizontalContentAlignment="Left" IsEnabled="False" Margin="10" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </StackPanel>
+
+            <Button Content="Obavi transakciju" Grid.RowSpan="2" Grid.Column="7" Grid.Row="7" Margin="0,20,0,0" Grid.ColumnSpan="3"  Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Center"  Opacity="0.7"  VerticalAlignment="Center" Height="40" Width="100" Click="ObaviTransakcijju">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <WrapPanel Margin="0,10,0,0" Grid.Row="6"    Grid.Column="1" Grid.ColumnSpan="7" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox IsEnabled="False"  HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light" Text="Uplaceno novca" FontSize="20" Background="Transparent" BorderThickness="0" Width="200" HorizontalContentAlignment="Center"  />
+                <TextBox Name="textBoxUplacenoNovca" HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light"  FontSize="19" Background="Transparent" BorderThickness="0.7" Width="120" HorizontalContentAlignment="Left" Opacity="0.5" >
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+            </WrapPanel>
+
+            <StackPanel Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                <TextBox Margin="0,0,0,3" IsEnabled="False"  HorizontalAlignment="Center" FontFamily="Helvetica" FontWeight="Light" Text="Valuta" FontSize="13" Background="Transparent" BorderThickness="0" Width="40" HorizontalContentAlignment="Center"  />
+
+                <RadioButton Opacity="0.5" FontWeight="Light" FontFamily="Helvetica"  IsChecked="True" FontSize="12" Content="RSD" Width="40" Height="18" />
+                <RadioButton Opacity="0.5" FontWeight="Light" FontFamily="Helvetica" Name="radioButtonEur" Content="EUR" FontSize="12" Width="40" Height="22"/>
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>

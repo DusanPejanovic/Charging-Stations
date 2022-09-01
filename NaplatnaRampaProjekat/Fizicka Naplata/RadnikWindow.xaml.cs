@@ -175,7 +175,7 @@ namespace NaplatnaRampaProjekat
         private void StartAnimation()
         {
 
-            Color fromRGB = Color.FromRgb(255, 0, 0); 
+            Color fromRGB = Color.FromRgb(255, 255, 255); 
             Color ToRGB = Color.FromRgb(0, 255, 0);
 
             SolidColorBrush myBrush = new SolidColorBrush();
@@ -183,7 +183,7 @@ namespace NaplatnaRampaProjekat
             ColorAnimation myAnimation = new ColorAnimation();
             myAnimation.From = fromRGB;
             myAnimation.To = ToRGB;
-            myAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(5000));
+            myAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(7000));
             myAnimation.AutoReverse = true;
 
             myBrush.BeginAnimation(SolidColorBrush.ColorProperty, myAnimation);
