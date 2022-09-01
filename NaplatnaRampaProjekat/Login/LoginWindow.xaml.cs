@@ -46,9 +46,8 @@ namespace Login
             {
                  pass = rdr.GetString(1);
                  user = rdr.GetString(0);
-                if (pass == sifraTextBox.Password && user == korisnickoImeTextBox.Text)
+                if (pass == sifraTextBox.Text && user == korisnickoImeTextBox.Text)
                 {
-                    MessageBox.Show("Dobro dosao ti si " + type, "Notifikacija");
                     return true;
                 }
             }
