@@ -22,6 +22,8 @@ namespace Login
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private string user = "";
+        private string pass = "";
         public LoginWindow()
         {
             InitializeComponent();
@@ -42,8 +44,8 @@ namespace Login
 
             while (rdr.Read())
             {
-                string pass = rdr.GetString(1);
-                string user = rdr.GetString(0);
+                 pass = rdr.GetString(1);
+                 user = rdr.GetString(0);
                 if (pass == sifraTextBox.Password && user == korisnickoImeTextBox.Text)
                 {
                     MessageBox.Show("Dobro dosao ti si " + type, "Notifikacija");
@@ -66,7 +68,7 @@ namespace Login
             }
             else if (checkUserPassword("Radnik"))
             {
-                RadnikWindow radnikWindow = new RadnikWindow();
+                RadnikWindow radnikWindow = new RadnikWindow(user);
                 radnikWindow.Show();
                 this.Close();
             }
