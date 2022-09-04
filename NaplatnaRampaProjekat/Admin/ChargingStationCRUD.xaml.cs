@@ -29,7 +29,7 @@ namespace Admin
             InitializeComponent();
             FillDataGrid();
         }
-        MySqlConnection connection = new MySqlConnection(@"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB");
+        MySqlConnection connection = new MySqlConnection(@"server=localhost;userid=root;password=kula254;database=Naplatne_Rampe_DB");
         private void FillDataGrid()
         {
             string query = "SELECT * from stanica";

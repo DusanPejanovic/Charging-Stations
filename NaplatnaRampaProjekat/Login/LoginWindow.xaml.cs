@@ -31,7 +31,7 @@ namespace Login
         }
         private bool checkUserPassword(string type)
         {
-            string cs = @"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB";
+            string cs = @"server=localhost;userid=root;password=kula254;database=Naplatne_Rampe_DB";
 
             using var con = new MySqlConnection(cs);
             con.Open();

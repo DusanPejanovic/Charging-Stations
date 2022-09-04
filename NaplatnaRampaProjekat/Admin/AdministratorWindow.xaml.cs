@@ -42,12 +42,18 @@ namespace Admin
 
         private void report_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            var report = new Reports();
+            report.ShowDialog();
+            this.Show();
         }
 
         private void cenovnik_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            var prices = new Prices();
+            prices.ShowDialog();
+            this.Show();
         }
 
         private void chargingStations_Click(object sender, RoutedEventArgs e)
