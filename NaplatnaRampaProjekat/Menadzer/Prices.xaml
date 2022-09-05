@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="Prices" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="dataGrid1" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="20,50,20,50" IsReadOnly="True" Height="400" VerticalAlignment="Top" >
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="AntiqueWhite" Offset="0.0"/>
+                    <GradientStop Color="MintCream" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <DataGrid  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Name="dataGrid1" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="20,50,20,50" IsReadOnly="True" Height="400" VerticalAlignment="Top" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Naziv pocene stanice" Binding="{Binding naziv_pocetne}" Width="*" />
                 <DataGridTextColumn Header="Naziv krajnje stanice" Binding="{Binding naziv_krajnje}" Width="*" />

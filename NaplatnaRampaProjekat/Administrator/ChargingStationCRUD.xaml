@@ -5,14 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="ChargingStationCRUD"  WindowStartupLocation="CenterScreen" Height="450" Width="800">
-    <Grid RenderTransformOrigin="0.489,0.484" Margin="91,0,91,20">
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="104,50,0,0" VerticalAlignment="Top" Height="30" Width="70"/>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top"/>
-        <Label Content="Administrator:" HorizontalAlignment="Left" Margin="104,132,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nazivTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <TextBox x:Name="idTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <TextBox x:Name="adminTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24"/>
-        <DataGrid Name="dataGrid" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="0,232,0,-5"  IsReadOnly="True" SelectionChanged="dataGrid_SelectionChanged" >
+    <Grid>
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="AntiqueWhite" Offset="0.0"/>
+                    <GradientStop Color="MintCream" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
+        <Grid RenderTransformOrigin="0.489,0.484" Margin="91,0,91,20">
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Naziv:" HorizontalAlignment="Left" Margin="104,50,0,0" VerticalAlignment="Top" Height="30" Width="70"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="ID:" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Administrator:" HorizontalAlignment="Left" Margin="104,132,0,0" VerticalAlignment="Top"/>
+            <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="nazivTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="idTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,91,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="adminTextBox" IsReadOnly="True" HorizontalAlignment="Left" Margin="266,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Height="24">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <DataGrid  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Name="dataGrid" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="0,232,0,-5"  IsReadOnly="True" SelectionChanged="dataGrid_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID"  Binding="{Binding ID_Stanica}"/>
                 <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="*" />
@@ -20,11 +50,36 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="createButton" Content="Dodaj stanicu" HorizontalAlignment="Left" Margin="104,187,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click"/>
-        <Button x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,187,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click"/>
-        <Button x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,187,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click"/>
-        <Button x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="85" Click="confirmEdit_Click"/>
+            <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="createButton" Content="Dodaj stanicu" HorizontalAlignment="Left" Margin="104,187,0,0" VerticalAlignment="Top" Width="100" Click="createButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="updateButton" Content="Izmeni" HorizontalAlignment="Left" Margin="251,187,0,0" VerticalAlignment="Top" Width="100" Click="updateButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="deleteButton" Content="Obriši" HorizontalAlignment="Left" Margin="398,187,0,0" VerticalAlignment="Top" Width="100" Click="deleteButton_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="confirmEdit" Visibility="Hidden" Content="Potvrdi Izmenu" HorizontalAlignment="Left" Height="64" Margin="515,71,0,0" VerticalAlignment="Top" Width="85" Click="confirmEdit_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
 
+        </Grid>
     </Grid>
 </Window>

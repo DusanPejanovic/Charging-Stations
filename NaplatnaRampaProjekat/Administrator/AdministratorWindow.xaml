@@ -6,9 +6,45 @@
         mc:Ignorable="d"
         Title="AdministratorWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Naplatna mesta" HorizontalAlignment="Left" Margin="179,0,0,0" VerticalAlignment="Center" Height="79" Width="144" Click="chargingPlace_Click"/>
-        <Button Content="Izloguj se" HorizontalAlignment="Left" Margin="22,18,0,0"  VerticalAlignment="Top" Height="30" Width="80" Click="logOut_Click"/>
-        <Button Content="Naplatne stanice" HorizontalAlignment="Left" Margin="481,0,0,0" VerticalAlignment="Center" Height="79" Width="144" Click="chargingStations_Click"/>
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="AntiqueWhite" Offset="0.0"/>
+                    <GradientStop Color="MintCream" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <TextBlock Text="CRUD" FontWeight="Light" FontFamily="helvetica" FontSize="30" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,24,0,0" Height="48" Width="80"/>
+        </Border>
 
+
+        <Grid>
+
+
+            <Button Content="Naplana mesta"   Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Left" Margin="215,213,0,0" Opacity="0.7"  VerticalAlignment="Top" Height="60" Width="140" Click="chargingPlace_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Izloguj se"   Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Left" Margin="27,21,0,0" Opacity="0.7"  VerticalAlignment="Top" Height="30" Width="80" Click="logOut_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Naplatne stanice"   Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Left" Margin="450,213,0,0" Opacity="0.7"  VerticalAlignment="Top" Height="60" Width="140" Click="chargingStations_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+        </Grid>
     </Grid>
+
 </Window>

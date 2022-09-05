@@ -7,20 +7,56 @@
         mc:Ignorable="d"
         Title="Dodavanje naplatnog mesta" Height="450" Width="437">
     <Grid>
+
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="AntiqueWhite" Offset="0.0"/>
+                    <GradientStop Color="MintCream" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+
         <Grid Margin="0,0,257,162">
-            <Label Content="ID:" HorizontalAlignment="Left" Margin="50,87.5,0,0" VerticalAlignment="Top"/>
-            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="50,127.5,0,0" VerticalAlignment="Top"/>
-            <Label Content="Stanica:" HorizontalAlignment="Left" Margin="50,167.5,0,0" VerticalAlignment="Top"/>
-            <Label Content="El.Naplata" HorizontalAlignment="Left" Margin="50,207,0,0" VerticalAlignment="Top"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="ID:" HorizontalAlignment="Left" Margin="50,87.5,0,0" VerticalAlignment="Top"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Naziv:" HorizontalAlignment="Left" Margin="50,127.5,0,0" VerticalAlignment="Top"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Stanica:" HorizontalAlignment="Left" Margin="50,167.5,0,0" VerticalAlignment="Top"/>
+            <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="El.Naplata" HorizontalAlignment="Left" Margin="50,207,0,0" VerticalAlignment="Top"/>
 
         </Grid>
         <Grid Margin="183,0,6,162" RenderTransformOrigin="0.5,0.5">
-            <TextBox x:Name="idTextBox" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="228"/>
-            <TextBox x:Name="nazivTextBox" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="228"/>
-            <ComboBox x:Name="stanicaComboBox"  HorizontalAlignment="Center" Margin="0,170,0,0"  VerticalAlignment="Top" Height="20" Width="228" SelectionChanged="stanicaComboBox_SelectionChanged"/>
-            <CheckBox x:Name="eNaplataCheckBox"  HorizontalAlignment="Left" Margin="103,218,0,0" VerticalAlignment="Top"/>
+            <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="idTextBox" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="228">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="nazivTextBox" HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="228">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <ComboBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="stanicaComboBox"  HorizontalAlignment="Center" Margin="0,170,0,0"  VerticalAlignment="Top" Height="20" Width="228" SelectionChanged="stanicaComboBox_SelectionChanged"/>
+            <CheckBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="eNaplataCheckBox"  HorizontalAlignment="Left" Margin="103,218,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Button x:Name="confirmButton" Content="POTVRDI" HorizontalAlignment="Left" Height="39" Margin="60,318,0,0" VerticalAlignment="Top" Width="120" Click="confirmButton_Click"/>
-        <Button x:Name="cancelButton" Content="OBUSTAVI" HorizontalAlignment="Left" Height="39" Margin="247,318,0,0" VerticalAlignment="Top" Width="120" Click="cancelButton_Click"/>
+        <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="confirmButton" Content="POTVRDI" HorizontalAlignment="Left" Height="39" Margin="60,318,0,0" VerticalAlignment="Top" Width="120" Click="confirmButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="cancelButton" Content="OBUSTAVI" HorizontalAlignment="Left" Height="39" Margin="247,318,0,0" VerticalAlignment="Top" Width="120" Click="cancelButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

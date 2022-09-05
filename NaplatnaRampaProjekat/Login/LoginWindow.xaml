@@ -48,8 +48,8 @@
                     </TextBox>
                 </WrapPanel>
 
-                
-                <Button Content="Uloguj se"   Background="Transparent" FontFamily="Helvetica" FontWeight="Light"  HorizontalAlignment="Center" Margin="0,50,0,0" Opacity="0.7"  VerticalAlignment="Center" Height="30" Width="80" Click="Button_Click">
+
+                <Button Content="Uloguj se"   Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7"  HorizontalAlignment="Center"  Margin="0,50,0,0"   VerticalAlignment="Center" Height="30" Width="80" Click="Button_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
