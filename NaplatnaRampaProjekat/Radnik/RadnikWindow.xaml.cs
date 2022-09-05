@@ -183,7 +183,7 @@ namespace NaplatnaRampaProjekat
             ColorAnimation myAnimation = new ColorAnimation();
             myAnimation.From = fromRGB;
             myAnimation.To = ToRGB;
-            myAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(7000));
+            myAnimation.Duration = new Duration(TimeSpan.FromMilliseconds(10000));
             myAnimation.AutoReverse = true;
 
             myBrush.BeginAnimation(SolidColorBrush.ColorProperty, myAnimation);
