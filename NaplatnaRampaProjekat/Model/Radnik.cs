@@ -8,8 +8,8 @@ namespace NaplatnaRampaProjekat.Model
 {
     internal class Radnik : Korisnik
     {
-        protected int idStanice;
-        public Radnik(int id, string ime, string prezime, string korisnicko_ime, string sifra, string adresa, int plata, DateTime datumRaposlenja, DateTime datumRodjenja, int idStanice)
+        private Stanica stanica;
+        public Radnik(int id, string ime, string prezime, string korisnicko_ime, string sifra, string adresa, int plata, DateTime datumRaposlenja, DateTime datumRodjenja,  Stanica stanica)
         {
             this.Id = id;
             this.Ime = ime;
@@ -20,7 +20,7 @@ namespace NaplatnaRampaProjekat.Model
             this.Plata = plata;
             this.DatumRaposlenja = datumZaposlenja;
             this.DatumRodjenja = datumRodjenja;
-            this.idStanice = idStanice;
+            this.Stanica = stanica;
         }
 
 
@@ -34,6 +34,6 @@ namespace NaplatnaRampaProjekat.Model
         public int Plata { get => plata; set => plata = value; }
         public DateTime DatumRaposlenja { get => datumZaposlenja; set => datumZaposlenja = value; }
         public DateTime DatumRodjenja { get => datumRodjenja; set => datumRodjenja = value; }
-        public int IdStanice { get => idStanice; set => idStanice = value; }
+        protected Stanica Stanica { get => stanica; set => stanica = value; }
     }
 }
