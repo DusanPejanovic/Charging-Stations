@@ -7,50 +7,23 @@
         mc:Ignorable="d"
         Title="Reports" Height="450" Width="800">
     <Grid>
-
-        <Border CornerRadius="10" Grid.RowSpan="2">
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="AntiqueWhite" Offset="0.0"/>
-                    <GradientStop Color="MintCream" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
-
-
-        <Button  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="Continuee" Content="Nastavak" HorizontalAlignment="Left" Margin="600,103,0,0" VerticalAlignment="Top" Width="100" Click="Continue" Height="53">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="pocetakTextBox" HorizontalAlignment="Left" Margin="185,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="215">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="6"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <TextBox  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" x:Name="krajTextBox" HorizontalAlignment="Left" Margin="185,128,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="25" Width="215">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="6"/>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Od kada zelite izvestaj:" HorizontalAlignment="Left" Margin="50,87.5,0,0" VerticalAlignment="Top"/>
-        <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Do kada zelite izvestaj:" HorizontalAlignment="Left" Margin="50,127.5,0,0" VerticalAlignment="Top"/>
-        <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Najposecenija stanica:" HorizontalAlignment="Left" Margin="424,93,0,0" VerticalAlignment="Top"/>
-        <Label  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Content="Ukupan pazar" HorizontalAlignment="Left" Margin="424,127,0,0" VerticalAlignment="Top"/>
-        <DataGrid  Background="Transparent" FontFamily="Helvetica" FontWeight="Light" Opacity="0.7" Name="dataGrid1" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="20,191,20,10" IsReadOnly="True" >
+        <Button x:Name="Continuee" Content="Nastavak" HorizontalAlignment="Left" Margin="690,93,0,0" VerticalAlignment="Top" Width="100" Click="Continue" Height="53"/>
+        <TextBox x:Name="pocetakTextBox" HorizontalAlignment="Left" Margin="185,93,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="20" Width="215"/>
+        <TextBox x:Name="krajTextBox" HorizontalAlignment="Left" Margin="185,128,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="25" Width="215"/>
+        <Label Content="Od kada zelite izvestaj:" HorizontalAlignment="Left" Margin="50,87.5,0,0" VerticalAlignment="Top"/>
+        <Label Content="Do kada zelite izvestaj:" HorizontalAlignment="Left" Margin="50,127.5,0,0" VerticalAlignment="Top"/>
+        <Label Content="ID najposecenije stanice:" HorizontalAlignment="Left" Margin="424,93,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="maxPoseta" Content="------" HorizontalAlignment="Left" Margin="583,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.459,0.22" Height="27"/>
+        <Label Content="Ukupan pazar:" HorizontalAlignment="Left" Margin="429,135,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ukupanPazar" Content="------" HorizontalAlignment="Left" Margin="583,135,0,0" VerticalAlignment="Top" Width="39"/>
+        <DataGrid Name="dataGrid1" ItemsSource="{Binding}" SelectionMode="Single" AutoGenerateColumns="False" Margin="20,191,20,10" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naziv pocene stanice" Binding="{Binding naziv_pocetne}" Width="*" />
-                <DataGridTextColumn Header="Naziv krajnje stanice" Binding="{Binding naziv_krajnje}" Width="*" />
-                <DataGridTextColumn Header="Naziv kategorije vozila" Binding="{Binding naziv_kategorije}" Width="*" />
+                <DataGridTextColumn Header="ID pocene stanice" Binding="{Binding ID_Stanica_pocetna}" Width="*" />
+                <DataGridTextColumn Header="Naziv krajnje stanice" Binding="{Binding ID_Stanica_krajnja}" Width="*" />
+                <DataGridTextColumn Header="Naziv kategorije vozila" Binding="{Binding ID_Kategorija_vozila}" Width="*" />
                 <DataGridTextColumn Header="Cena" Binding="{Binding cena}" Width="*" />
                 <DataGridTextColumn Header="Datum transakcije" Binding="{Binding Datum_Transakcije}" Width="*" />
-                <DataGridTextColumn Header="Regisracione tablice" Binding="{Binding registraciona_tablica}" Width="*" />
+                <DataGridTextColumn Header="Regisracione tablice" Binding="{Binding Registraciona_tablica}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

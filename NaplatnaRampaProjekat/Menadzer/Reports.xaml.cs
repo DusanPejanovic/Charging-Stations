@@ -24,7 +24,7 @@ namespace Admin
         public Reports()
         {
             InitializeComponent();
-            FillDataGridBasic();
+            //FillDataGridBasic();
         }
 
         MySqlConnection connection = new MySqlConnection(@"server=localhost;userid=root;password=admin;database=Naplatne_Rampe_DB");
@@ -42,42 +42,48 @@ namespace Admin
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             dataGrid1.ItemsSource = dt.DefaultView;
+
+            query = "";
+            using var cmd1 = new MySqlCommand(query, connection);
+            MySqlDataAdapter adapter1 = new MySqlDataAdapter(cmd1);
         }
 
         private void Continue(object sender, RoutedEventArgs e)
         {
-            //this.Hide();
-            //var createWindow = new CreateChargingPlace();
-            //createWindow.ShowDialog();
-            //this.Show();
-            dataGrid1.ItemsSource = null;
-
             string cs = @"server=localhost;userid=root;password=kula254;database=Naplatne_Rampe_DB";
-            string date1 = "2015-10-06 11:16:10";
-            string date2 = "2023-10-06 14:14:25";
-
-            //string query = "select * from transakcija where " + pocetakTextBox.Text + " < Datum_Transakcije and " + krajTextBox.Text + " > Datum_Transakcije; ";
-            string query = "select * from transakcija where " + date1 + " < Datum_Transakcije and " + date2 + " > Datum_Transakcije; ";
-
 
             if (connection.State == ConnectionState.Closed)
             {
                 connection.Open();
             }
+            string pocetno_vreme = pocetakTextBox.Text;
+            string krajnje_vreme = krajTextBox.Text;
+            string query = "select distinct t.ID_Stanica_pocetna, t.ID_Stanica_krajnja, t.ID_Kategorija_vozila, t.Registraciona_tablica, t.ID_Cena, t.Datum_Transakcije, c.cena from transakcija t, cena c where '" + pocetno_vreme + "' < Datum_Transakcije and '" + krajnje_vreme + "' > Datum_Transakcije and t.ID_cena = t.id_cena group by t.ID_Stanica_pocetna, t.ID_Stanica_krajnja, t.ID_Kategorija_vozila, t.Registraciona_tablica, t.ID_Cena, t.Datum_Transakcije;";
 
             using var cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            dataGrid1.ItemsSource = dt.DefaultView;
-
-            /*using var cmd = new MySqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from transakcija where @date1 < NOW() and @date2 > NOW(); ";
-            cmd.ExecuteNonQuery();
-            */
+            query = "select count(*) as posecenost, max(ID_Stanica_pocetna), ID_Stanica_pocetna from transakcija group by ID_Stanica_pocetna limit 1;";
+            MySqlDataReader dr;
+            using var cmd1 = new MySqlCommand(query, connection);
+            dr = cmd.ExecuteReader(CommandBehavior.SingleResult);
+            dr.Read();
+            string max = dr.GetString("ID_Stanica_Pocetna");
+            dr.Close();
+            maxPoseta.Content = max;
+            query = "select sum(cena) as ukupanPazar from transakcija inner join cena on transakcija.id_cena = cena.id_cena; ";
+            using var cmd2 = new MySqlCommand(query, connection);
+            MySqlDataReader dr1;
+            dr1 = cmd.ExecuteReader(CommandBehavior.SingleResult);
+            dr1.Read();
+            int pazarInt = dr1.GetInt32(1);
+            string pazar = pazarInt.ToString();
+            ukupanPazar.Content = pazar;
             pocetakTextBox.Text = "";
             krajTextBox.Text = "";
+            dataGrid1.ItemsSource = dt.DefaultView;
+            dr.Close();
         }
 
     }
