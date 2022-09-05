@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using NaplatnaRampaProjekat;
 using Admin;
+using NaplatnaRampaProjekat.Menadzer;
 
 namespace Login
 {
@@ -68,6 +69,12 @@ namespace Login
             else if (checkUserPassword("Radnik"))
             {
                 RadnikWindow radnikWindow = new RadnikWindow(user);
+                radnikWindow.Show();
+                this.Close();
+            }
+            else if (checkUserPassword("Menadzer"))
+            {
+                MenadzerWindow radnikWindow = new MenadzerWindow();
                 radnikWindow.Show();
                 this.Close();
             }

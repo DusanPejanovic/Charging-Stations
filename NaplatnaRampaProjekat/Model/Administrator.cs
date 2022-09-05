@@ -9,12 +9,12 @@ namespace NaplatnaRampaProjekat.Model
     internal class Administrator : Korisnik
     {
 
-        public Administrator(int id, string ime, string prezime, string korisnicko_ime, string sifra, string adresa, int plata, DateTime datumRaposlenja, DateTime datumRodjenja)
+        public Administrator(int id,  string ime, string prezime, string korisnicko_ime, string sifra, string adresa, int plata, DateTime datumRaposlenja, DateTime datumRodjenja)
         {
             this.Id = id;
             this.Ime = ime;
             this.Prezime = prezime;
-            this.Korisnicko_ime = korisnicko_ime;
+            this.KorisnickoIme = korisnicko_ime;
             this.Sifra = sifra;
             this.Adresa = adresa;
             this.Plata = plata;
@@ -27,7 +27,7 @@ namespace NaplatnaRampaProjekat.Model
         public int Id { get => id; set => id = value; }
         public string Ime { get => ime; set => ime = value; }
         public string Prezime { get => prezime; set => prezime = value; }
-        public string Korisnicko_ime { get => korisnicko_ime; set => korisnicko_ime = value; }
+        public string KorisnickoIme { get => korisnickoIme; set => korisnickoIme = value; }
         public string Sifra { get => sifra; set => sifra = value; }
         public string Adresa { get => adresa; set => adresa = value; }
         public int Plata { get => plata; set => plata = value; }

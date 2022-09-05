@@ -11,7 +11,7 @@ namespace NaplatnaRampaProjekat.Model
         protected int id;
         protected string ime;
         protected string prezime;
-        protected string korisnicko_ime;
+        protected string korisnickoIme;
         protected string sifra;
         protected string adresa;
         protected int plata;
